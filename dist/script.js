@@ -45,7 +45,7 @@ new Vue({
           artist: "???",
           cover: "./img/octopus.png",
           source: "./audio/audio4.webm",
-          url: "https://www.youtube.com/watch?v=kYgGwWYOd9Y",
+          url: "https://github.com/Maureenvl/spotify-web-player",
           favorited: false
         },
         {
@@ -82,6 +82,8 @@ new Vue({
         this.isTimerPlaying = false;
       }
     },
+
+    *// zorgt ervoor dat de tijd van de muziek verschijnt
     generateTime() {
       let width = (100 / this.audio.duration) * this.audio.currentTime;
       this.barWidth = width + "%";
@@ -105,6 +107,8 @@ new Vue({
       this.duration = durmin + ":" + dursec;
       this.currentTime = curmin + ":" + cursec;
     },
+
+    /* zorgt ervoor dat je kan zien hoever je balkje van je muziek al is en hoelang t nummer nog duurt */
     updateBar(x) {
       let progress = this.$refs.progress;
       let maxduration = this.audio.duration;
@@ -183,7 +187,7 @@ new Vue({
       this.isTimerPlaying = true;
     };
 
-    // this is optional (for preload covers)
+    
     for (let index = 0; index < this.tracks.length; index++) {
       const element = this.tracks[index];
       let link = document.createElement('link');
